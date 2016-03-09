@@ -57,6 +57,16 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username, :first_name, :last_name, :organization_id
 
+  validates :username, :length => { :maximum => 10 }
+  validates :username, format: {with: /\A[a-zA-Z0-9]+\Z/, message: ' only alphanumeric characters'}
+
+  validates :first_name, :length => {:maximum => 10}
+  validates :first_name, format: {with: /\A[a-zA-Z0-9]+\Z/, message: ' only alphanumeric characters'}
+  validates :last_name, :length => {:maximum => 10}
+  validates :last_name, format: {with: /\A[a-zA-Z0-9]+\Z/, message: ' only alphanumeric characters'}
+
+  
+
   # default order when calling the User model
   default_scope -> { order('created_at DESC') }
 
