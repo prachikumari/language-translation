@@ -14,6 +14,7 @@ class Site < ActiveRecord::Base
   belongs_to :country
 
   validates :name, presence: true
+  validates :name, uniqueness:{case_sensitive:false}
 
   # default order when calling the Site model
   default_scope -> { order('created_at DESC') }
