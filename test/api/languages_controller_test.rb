@@ -18,9 +18,10 @@ class API::LanguagesControllerTest < ActionController::TestCase
   describe "Get #index" do
     describe "when all language renders" do
       before(:each) do
-        3.times {
           create(:language, { name: "Chuukese" })
-        }
+          create(:language, { name: "Spanish" })
+          create(:language, { name: "English" })
+
       end
 
       it "return 3 records" do
