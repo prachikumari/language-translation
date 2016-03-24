@@ -57,6 +57,8 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username, :first_name, :last_name, :organization_id
 
+  validates :contact, numericality: { only_integer: true , message: 'supports only digits' },:allow_blank => true
+
   # default order when calling the User model
   default_scope -> { order('created_at DESC') }
 
